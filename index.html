@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <meta name="description" content="Personal site: play through my journey, or read the résumé.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-mode="">
+
+  <!-- Mode switch (always visible) -->
+  <nav class="switch" aria-label="Choose version">
+    <button data-mode-btn="play">▶ Play</button>
+    <button data-mode-btn="hire">Résumé</button>
+  </nav>
+
+  <!-- First-visit chooser -->
+  <div id="chooser" class="chooser" hidden>
+    <div class="chooser-box">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1 id="chooser-name"></h1>
+      <p class="chooser-q">How do you want to see my work?</p>
+      <div class="chooser-opts">
+        <button data-mode-btn="play" class="opt opt-play">
+          <span class="opt-title">▶ Play the journey</span>
+          <span class="opt-sub">A short platformer. Use the arrow keys, collect shards, unlock levels.</span>
+        </button>
+        <button data-mode-btn="hire" class="opt opt-hire">
+          <span class="opt-title">Just the résumé</span>
+          <span class="opt-sub">Experience, projects, papers and links on one page.</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ RÉSUMÉ VERSION ============ -->
+  <main id="hire" class="hire">
+    <header class="hero">
+      <div>
+        <h1 id="r-name"></h1>
+        <p class="role" id="r-role"></p>
+        <p class="meta" id="r-meta"></p>
+      </div>
+      <div class="actions" id="r-actions"></div>
+    </header>
+    <p class="summary" id="r-summary"></p>
+
+    <section><h2>Experience</h2><div id="r-exp"></div></section>
+    <section><h2>Projects</h2><div class="grid" id="r-projects"></div></section>
+    <section><h2>Publications</h2><ol class="pubs" id="r-papers"></ol></section>
+    <section><h2>Skills</h2><div id="r-skills"></div></section>
+    <section><h2>Education</h2><div id="r-edu"></div></section>
+    <section><h2>Journey</h2><ol class="timeline" id="r-journey"></ol></section>
+
+    <footer class="foot">
+      <span id="r-foot"></span>
+      <button class="linkish" data-mode-btn="play">Prefer to play? ▶</button>
+    </footer>
+  </main>
+
+  <!-- ============ PLAYABLE VERSION ============ -->
+  <section id="play" class="play" aria-label="Playable portfolio">
+    <div class="stage">
+      <canvas id="game" tabindex="0" aria-label="Game: use arrow keys to move and jump"></canvas>
+      <div id="overlay" class="overlay" hidden></div>
+
+      <button id="journal-btn" class="journal-btn">Journal</button>
+      <aside id="journal" class="journal" hidden></aside>
+
+      <div class="touch" aria-hidden="true">
+        <div class="dpad">
+          <button data-k="up" class="u">▲</button>
+          <button data-k="left" class="l">◀</button>
+          <button data-k="right" class="r">▶</button>
+          <button data-k="down" class="d">▼</button>
+        </div>
+        <button data-k="action" class="act">●</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+  <script src="games/platformer.js"></script>
+  <script src="games/stacker.js"></script>
+  <script src="games/maze.js"></script>
+  <script src="games/moto.js"></script>
+  <script src="games/rally.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
